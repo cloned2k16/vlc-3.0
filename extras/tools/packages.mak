@@ -15,7 +15,7 @@ LIBTOOL_URL=$(GNU)/libtool/libtool-$(LIBTOOL_VERSION).tar.gz
 AUTOCONF_VERSION=2.69
 AUTOCONF_URL=$(GNU)/autoconf/autoconf-$(AUTOCONF_VERSION).tar.gz
 
-AUTOMAKE_VERSION=1.15
+AUTOMAKE_VERSION=1.16
 AUTOMAKE_URL=$(GNU)/automake/automake-$(AUTOMAKE_VERSION).tar.gz
 
 M4_VERSION=1.4.18
@@ -42,11 +42,17 @@ SED_URL=$(GNU)/sed/sed-$(SED_VERSION).tar.bz2
 ANT_VERSION=1.9.7
 ANT_URL=$(APACHE)/ant/binaries/apache-ant-$(ANT_VERSION)-bin.tar.bz2
 
-PROTOBUF_VERSION := 3.1.0
-PROTOBUF_URL := https://github.com/google/protobuf/releases/download/v$(PROTOBUF_VERSION)/protobuf-cpp-$(PROTOBUF_VERSION).tar.gz
+PROTOBUF_VERSION=3.1.0
+PROTOBUF_URL=https://github.com/protocolbuffers/protobuf/releases/download/v$(PROTOBUF_VERSION)/protobuf-cpp-$(PROTOBUF_VERSION).tar.gz
 
 BISON_VERSION=3.0.4
 BISON_URL=$(GNU)/bison/bison-$(BISON_VERSION).tar.xz
 
 FLEX_VERSION=2.6.4
 FLEX_URL=https://github.com/westes/flex/releases/download/v$(FLEX_VERSION)/flex-$(FLEX_VERSION).tar.gz
+
+GETTEXT_VERSION=0.19.8.1
+GETTEXT_URL=$(GNU)/gettext/gettext-$(GETTEXT_VERSION).tar.gz
+
+HELP2MAN_VERSION=1.47.6
+HELP2MAN_URL=$(GNU)/help2man/help2man-$(HELP2MAN_VERSION).tar.xz

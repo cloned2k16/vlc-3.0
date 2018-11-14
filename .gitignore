@@ -53,3 +53,6 @@ build*
 contrib-*
 install-*
 
+/native-build
+/contrib/native-build
+/extras/tools/bootstrap.err

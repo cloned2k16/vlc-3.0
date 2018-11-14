@@ -278,20 +278,22 @@ CLEAN_FILE += .ant
 
 # Protobuf Protoc
 
-protobuf-$(PROTOBUF_VERSION).tar.gz:
+protobuf-cpp-$(PROTOBUF_VERSION).tar.gz:
 	$(call download_pkg,$(PROTOBUF_URL),protobuf)
 
-protobuf: protobuf-$(PROTOBUF_VERSION).tar.gz
+protobuf: protobuf-cpp-$(PROTOBUF_VERSION).tar.gz
 	$(UNPACK)
-	$(MOVE)
+#	$(MOVE)
+#	dirty fix the archive doesn't follows convetionals name rules assumed in here ... 
+	mv protobuf-$(PROTOBUF_VERSION) protobuf && touch protobuf
 
 .protoc: protobuf
 	(cd $< && ./configure --prefix="$(PREFIX)" --disable-shared --enable-static && $(MAKE) && $(MAKE) install)
-	(find $(PREFIX) -name 'protobuf*.pc' -exec rm -f {} \;)
+#	(find $(PREFIX) -name 'protobuf*.pc' -exec rm -f {} \;)
 	touch $@
 
 CLEAN_PKG += protobuf
-DISTCLEAN_PKG += protobuf-$(PROTOBUF_VERSION).tar.gz
+DISTCLEAN_PKG += protobuf-cpp-$(PROTOBUF_VERSION).tar.gz
 CLEAN_FILE += .protoc
 
 #
@@ -333,6 +335,31 @@ flex: flex-$(FLEX_VERSION).tar.gz
 CLEAN_PKG += flex
 DISTCLEAN_PKG += flex-$(FLEX_VERSION).tar.gz
 CLEAN_FILE += .flex
+
+
+#
+# GNU gettext
+#
+
+gettext-$(GETTEXT_VERSION).tar.gz:
+	$(call download_pkg,$(GETTEXT_URL),gettext)
+
+gettext: gettext-$(GETTEXT_VERSION).tar.gz
+	$(UNPACK)
+	$(MOVE)
+
+.gettext: gettext
+	(cd $<; ./configure --prefix=$(PREFIX) && $(MAKE) && $(MAKE) install)
+	touch $@
+
+CLEAN_PKG     +=  gettext
+DISTCLEAN_PKG +=  gettext-$(GETTEXT_VERSION).tar.gz
+CLEAN_FILE    += .gettext
+
+
+#
+#
+#
 
 
 #
